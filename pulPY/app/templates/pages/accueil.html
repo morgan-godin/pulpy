@@ -1,0 +1,27 @@
+{% extends 'conteneur.html' %}
+
+{% block corps %}
+<h1>PulPY Covers</h1>
+<h3></h3>
+<p>Cette application web a pour but de faciliter la visualisation de couvertures pulp.
+    Ce site présente une sélection de couvertures de magazines <em>pulp</em>.
+    Ce terme désigne les publications bon bon marché d'histoires aux thèmes divers comme des romances, des polars, des
+    récits fantastiques... Nous vous proposons ici une sélection de couvertures centrée sur la thématique de la
+    science fiction avec des titres comme <em>Amazing Stories</em>, <em>Astounding Stories</em>, <em>Galaxy</em>...
+<p>Les premières couvertures ajoutées sont issues d'une <a href="https://archive.org/details/pulpmagazinearchive">collection</a>
+    de dépôts Internet Archive sous <a href="https://creativecommons.org/licenses/?lang=fr-FR">Licence Creative Commons</a>.</p>
+<p>Vous pourrez naviguer à l'intérieur grâce à l'<a href="{{url_for('index')}}">index des numéros</a> et à la <a href="{{url_for('galerie')}}">galerie des couvertures</a>.</p>
+<p>Vous êtes invité à enrichir notre base de données en ajoutant des couvertures grâce au formulaire dédié.</p>
+<p>L'ajout, la suppression et la modification de notices nécessite une inscription préalable pour laquelle vous sont demandés :
+<ul>
+    <li>un login</li>
+    <li>votre nom</li>
+    <li>votre email</li>
+    <li>un mot de passe</li>
+</ul>
+</p>
+
+<br/>
+</p>
+
+{% endblock %}

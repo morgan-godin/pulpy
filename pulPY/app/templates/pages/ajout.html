@@ -1,0 +1,129 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}| Formulaire{%endblock%}
+
+{% block corps %}
+
+<h1>Formulaire d'ajout</h1>
+<p>Complétez le formulaire et cliquez sur Ajouter.</p>
+
+<p><b>Champs obligatoires*</b></p>
+<br>
+
+<form class="form dropdown" method="POST" action="{{url_for('ajout')}}">
+
+    <h4>Artiste de la couverture</h4>
+
+    <div class="panel panel-info">
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <strong>Prénom*</strong>
+                <input type="text" required name="Prenom" list="Listeprenomartiste" class="form-control" value=""/>
+                <datalist id="Listeprenomartiste">
+                    {% for prenomArtiste in Listeprenomartiste %}
+                    <option data-value="test" value="{{ prenomArtiste.prenom }}">
+                    {% endfor %}
+                </datalist>
+            </div>
+
+             <div class="col-sm-10">
+                <strong>Nom*</strong>
+                <input type="text" required name="Nom" list="Listenomartiste" class="form-control" value=""/>
+                <datalist id="Listenomartiste">
+                    {% for nomArtiste in Listenomartiste %}
+                    <option data-value="test" value="{{ nomArtiste.nom }}">
+                    {% endfor %}
+                </datalist>
+            </div>
+        </div>
+    </div>
+
+
+    <h4>Numéro du magazine</h4>
+
+         <div class="panel panel-info">
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <strong>Titre du périodique*</strong>
+                    <input type="text" required name="Titre" list="Listetitremag" class="form-control" value=""/>
+                    <datalist id="Listetitremag">
+                        {% for titreMag in Listetitremag %}
+                        <option data-value="test" value="{{ titreMag.titre }}">
+                        {% endfor %}
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <strong>Numéro (Vol. _ No. _)*</strong>
+                    <input type="text" required name="Numero" class="form-control" value=""/>
+                    <datalist id="Listenumero">
+                        {% for numeroPub in Listenumero %}
+                        <option data-value="test" value="{{ numeroPub.numero }}">
+                        {% endfor %}
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <strong>Date de publication (mois et année en français)*</strong>
+                    <input type="text" required name="Date_de_publication" class="form-control" value=""/>
+                    <datalist id="Listedatepub">
+                        {% for datePub in Listedatepub %}
+                        <option data-value="test" value="{{ datePub.date_de_publication }}">
+                        {% endfor %}
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <strong>Éditeur*</strong>
+                    <input type="text" required name="Nom_editeur" list="Listenomediteur" class="form-control" value=""/>
+                    <datalist id="Listenomediteur">
+                        {% for nomEditeur in Listenomediteur %}
+                        <option data-value="test" value="{{ nomEditeur.nom }}">
+                        {% endfor %}
+                    </datalist>
+                </div>
+            </div>
+         </div>
+
+
+    <h4>Couverture numérisée</h4>
+
+     <div class="panel panel-info">
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <strong>Identifiant ark</strong>
+                    <input type="text" name="Ark" class="form-control" value=""/>
+                    <datalist id="Listeark">
+                        {% for idArk in Listeark %}
+                        <option data-value="test" value="{{ idArk.ark }}">
+                        {% endfor %}
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <strong>URL de l'image*</strong>
+                    <input type="text" required name="URL" class="form-control" value=""/>
+                    <datalist id="Listeark">
+                        {% for idArk in Listeark %}
+                        <option data-value="test" value="{{ idArk.ark }}">
+                        {% endfor %}
+                    </datalist>
+                </div>
+            </div>
+     </div>
+
+    <br>
+    <div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </div>
+    <br>
+</form>
+{% endblock %}

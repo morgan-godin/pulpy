@@ -1,0 +1,35 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}
+    {%if magazine %}| Couverture : {{magazine.titre}} {% endif %}
+{% endblock %}
+
+{% block corps %}
+<br>
+<h1>Couverture du {{publication.numero}} de <i>{{magazine.titre}}</i></h1>
+<br>
+    <dt>Magazine</dt><dd><i>{{magazine.titre}}</i></dd>
+    <dt>Numéro</dt><dd>{{publication.numero}}</dd>
+    <dt>Date de publication</dt><dd>{{publication.date_de_publication}}</dd>
+    <dt>Editeur</dt><dd>{{editeur.nom}}</dd>
+    <br>
+    <dt>Artiste de la couverture</dt><dd>{{artiste.prenom}} {{artiste.nom}}</dd>
+    {% if couv.ark != "" %}
+    <dt>Identifiant ark</dt><dd>{{couv.ark}}</dd>
+    {% endif %}
+<br>
+
+    <img  src = "{{couv.URL}}" alt = "image couverture magazine" width = "650px">
+<br>
+<br>
+
+<div>
+    <p>
+        {% if current_user.is_authenticated %}
+        <a href="{{url_for('modifier', couv_id=couv.idcouv_num)}}"><button class="btn btn-primary">Modifier la notice</button></a>
+        <a href="{{url_for('supprimer', couv_id=couv.idcouv_num) }}"><button class="btn btn-primary">Supprimer la notice</button></a>
+        {% endif %}
+    </p>
+</div>
+
+{% endblock %}

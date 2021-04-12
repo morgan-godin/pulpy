@@ -1,0 +1,83 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}| Modifier une oeuvre{%endblock%}
+
+{% block corps %}
+
+<div>
+    <center>
+      <h2>Modifier les informations d'une couverture</h2>
+      <p>Pour modifier les informations, complétez le formulaire et cliquez sur "Valider la modification".</p>
+    </center>
+</div>
+<form class="form" method="POST" action="{{url_for('modifier', couv_id = couv.idcouv_num)}}">
+
+    <h4>Artiste de la couverture</h4>
+    <br>
+    <div class="form-group row">
+      <label for="nv_prenom_artiste" class="col-sm-2 col-form-label">Prenom</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="nv_prenom_artiste" value="{{artiste.prenom}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="nv_nom_artiste" class="col-sm-2 col-form-label">Nom</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="nv_nom_artiste" value="{{artiste.nom}}"/>
+      </div>
+    </div>
+
+    <h4>Numéro du magazine</h4>
+    <br>
+
+    <div class="form-group row">
+      <label for="nv_titre" class="col-sm-2 col-form-label">Titre du périodique</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="nv_titre" value="{{magazine.titre}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="nv_numero" class="col-sm-2 col-form-label">Numéro</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="nv_numero" value="{{publication.numero}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="nv_date" class="col-sm-2 col-form-label">Date de publication</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="nv_date" value="{{publication.date_de_publication}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="nv_editeur" list="Listnomediteur" class="col-sm-2 col-form-label">Éditeur</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="nv_editeur" value="{{editeur.nom}}"/>
+          </datalist>
+      </div>
+    </div>
+
+    <h4>Couverture numérisée</h4>
+    <br>
+
+    <div class="form-group row">
+      <label for="nv_ark" class="col-sm-2 col-form-label">Identifiant ark</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="nv_ark" value="{{couv.ark}}"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="nv_URL" class="col-sm-2 col-form-label">URL de l'image</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="nv_URL" value="{{couv.URL}}"/>
+      </div>
+    </div>
+
+    <br>
+    <center>
+      <div>
+        <button type="submit" class="btn btn-info">Valider la modification</button>
+      </div>
+    </center>
+    <br>
+</form>
+{% endblock %}

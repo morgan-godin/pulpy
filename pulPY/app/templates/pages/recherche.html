@@ -1,0 +1,20 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}| Recherche{%endblock%}
+
+{% block corps %}
+
+
+    <h1>Recherche</h1>
+    {% if resultats %}
+        <p>Il y a {{resultats.total}} couverture(s) qui répondent à votre requête :</p>
+        <ul>
+            {% for numero in resultats.items %}
+                <li><a href="{{url_for('couverture', couv_id = numero.idpublication)}}">
+                    {{numero.numero}}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

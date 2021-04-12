@@ -1,0 +1,39 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}
+    {%if magazine %}| Index des numéros{% endif %}
+{% endblock %}
+
+{% block corps %}
+
+<h1>Index des numéros</h1></br>
+
+    {% if magazines %}
+    <ul>
+        {% for magazine in magazines %}
+        <h4>{{magazine.titre}}</h4>
+            {% if numeros %}
+            <ul>
+                {% for numero in numeros %}
+                    {% if magazine.idmagazine == numero.magazine_idmagazine %}
+                        {% for couv in couvs %}
+                            {% if couv.idcouv_num == numero.couv_num_idcouv_num %}
+                            <li><a href="{{url_for('couverture', couv_id = couv.idcouv_num)}}">{{numero.numero}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            </br>
+            {% endif %}
+        {% endfor %}
+
+    {% endif %}
+    </ul>
+
+<br>
+<div>
+    <a href="{{url_for('page_accueil')}}"><button class="btn btn-primary">Retour à l'accueil</button></a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "conteneur.html" %}
+
+{% block corps %}
+
+<h1>À propos</h1>
+<p>Cette application web est développée dans le cadre du Master 2
+    <em>Technologies numériques appliquées à l'histoire</em> de l'École nationale des chartes.</p>
+
+<h4>Sources du projet</h4>
+<p>Ce devoir n'a pour vocation que de générer une interface basée sur Python, HTML et CSS.
+    Les données ont été récupérées depuis la collection
+    <a href="https://archive.org/details/pulpmagazinearchive">The Pulp Magazine</a> créée par
+    <a href="https://archive.org/details/@jason_scott">Jason Scott</a> sur Internet Archive.</p>
+
+
+<h4>Description du projet</h4>
+
+<p>PulPY est une application web permettant de donner accès aux couvertures de
+    <em>pulp magazines</em> avec des notices comportant des informations sur ces
+    ces dernières telles que les artistes qui les ont réalisés, les magazines qui
+    les ont publiés et leurs éditeurs.</p>
+
+
+
+<h4>Comment fonctionne PulPY</h4>
+
+<p>Les différentes pages s'appuient sur les langages HTML, CSS, et Python 3,
+    ainsi que sur une base de données MySQL.</p>
+
+<h4>Comment installer PulPY</h4>
+
+<p>Télécharger le dossier <a href="###">GitHub</a>.
+    Nous recommandons la création d'un environnement virtuel. Ouvrir le premier dossier "" et lancer le fichier run.py.</p>
+
+<br>
+<h5>Developpé par : Morgan Godin</h5>
+<br>
+
+<p><a href="{{url_for('page_accueil')}}">Retour à l'accueil</a></p>
+
+{% endblock %}

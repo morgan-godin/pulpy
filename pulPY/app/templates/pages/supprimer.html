@@ -1,0 +1,24 @@
+{% extends "conteneur.html" %}
+
+{% block titre %}| Supprimer œuvre{%endblock%}
+
+{% block corps %}
+
+
+<center>
+<form method="POST" action="{{url_for('supprimer', couv_id=couv.idcouv_num)}}">
+	<div>
+		<p><font color="red"><b>Etes-vous sûr de vouloir supprimer <br>
+			la couverture du {{publication.numero}} de <em>{{magazine.titre}}</em> dessinée par {{artiste.prenom}} {{artiste.nom}}</b></font></p>
+	</div>
+	<br/>
+	<div>
+      <div>
+          <button type="submit" class="btn btn-info">Confirmer</button>
+      </div>
+  </div>
+</form>
+
+</center>
+
+{% endblock %}
